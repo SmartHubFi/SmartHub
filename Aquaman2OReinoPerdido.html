@@ -1,0 +1,105 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+    <title>Aquaman 2: O Reino Perdido | SmartHub</title>
+</head>
+
+<body>
+    <header>
+        <video src="video/aquaman2oreinoperdidotrailer.webm" autoplay muted></video>
+    <nav>
+        <div class="logo_ul">
+            <img src="img/icon.png" alt="">
+            <ul>
+                <li>
+                    <a href="/">Início</a>
+                </li>
+                <li>
+                    <a href="#" id="Séries">Séries</a>
+                </li>
+                <li>
+                    <a href="#" id="Filmes">Filmes</a>
+                </li>
+                <li>
+                    <a href="#">Animes</a>
+                </li>
+            </ul>
+        </div>
+        <div class="search_user">
+            <input type="text" placeholder="Pesquisar..." id="search_input">
+            <img src="img/user.jpg" alt="">
+            <div class="search">
+                <!-- <a href="#" class="card">
+                    <img src="img/oppenheimer.jpg" alt="">
+                    <div class="cont">
+                        <h3>Oppenheimer</h3>
+                        <p>Drama, 2023 , <span>IMDB</span><i class="bi bi-star-fill"></i> 8.3</p>
+                    </div>
+                </a> -->
+            </div>
+        </div>
+    </nav>
+    <div class="content">
+    <h1 id="title">Aquaman 2: O Reino Perdido</h1>
+    <p>Quando um poder ancestral é liberado pelo Arraia Negra, o Aquaman deve forjar uma aliança incômoda com seu meio-irmão Orm para proteger Atlântida e o resto do mundo de uma devastação irreversível.</p>
+    <div class="details">
+        <h6>Um filme original da Max</h6>
+        <h5 id="gen">Ação</h5>
+        <h4 id="date">2023</h4>
+        <h3 id="rate"><span>IMDB</span><i class="bi bi-star-fill"></i> 5.6</h3>
+    </div>
+    <div class="btns">
+        <a href="#" id="play">Trailer <i class="bi bi-play-fill"></i></a>
+        <a href="#" target="Aquaman 2: O Reino Perdido Online" id="Online">Assistir online</a>
+        <a href="#" target="Aquaman 2: O Reino Perdido torrent" id="torrent">Torrent</a>
+    </div>
+    </div>
+    <section>
+        <h4>Popular</h4>
+        <i class="bi bi-chevron-left"></i>
+        <i class="bi bi-chevron-right"></i>
+        <div class="cards">
+            <!-- <a href="#" class="card">
+                <img src="img/oppenheimer.jpg" alt="" class="poster">
+                <div class="rest_card">
+                    <img src="img/capaoppenheimer.jpg" alt="">
+                    <div class="cont">
+                        <h4>Oppenheimer</h4>
+                        <div class="sub">
+                            <p>Drama, 2023</p>
+                            <h3><span>IMDB</span><i class="bi bi-star-fill"></i> 8.3</h3>
+                        </div>
+                    </div>
+                </div>
+            </a> -->
+        </div>
+    </section>
+    </header>
+    <script src="app.js"></script>
+    <script>
+        fetch(json_url).then((Response) => Response.json())
+        .then(data => {
+            let Filmes_array = data.filter(ele => {
+                return ele.name === "Aquaman 2: O Reino Perdido";
+            });
+
+        document.getElementById('title').innerText = Filmes_array[0].name;
+        document.getElementsByTagName('video')[0].setAttribute('src', Filmes_array[0].trailer);
+        document.getElementsByTagName('video')[0].play();
+        document.getElementById('Online').href = Filmes_array[0].Online;
+        document.getElementById('torrent').href = Filmes_array[0].torrent;
+        document.getElementById('gen').innerText = Filmes_array[0].genre;
+        document.getElementById('date').innerText = Filmes_array[0].date;
+        document.getElementById('rate').innerHTML = `<span>IMDB</span><i class="bi bi-star-fill"></i> ${Filmes_array[0].imdb}`;
+
+        })
+    </script>
+</body>
+</html>
